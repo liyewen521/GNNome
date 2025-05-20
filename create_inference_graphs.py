@@ -5,7 +5,7 @@ import graph_parser
 import dgl
 
 
-def create_inference_graph(gfa_path, reads_path, out_dir, assembler, paf_path):
+def create_inference_graph(gfa_path, reads_path, out_dir, assembler, paf_path=None):
     assert os.path.isfile(gfa_path), "GFA not found!"
     assert os.path.isfile(reads_path), "Reads not found!"
 
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     parser.add_argument('--reads', type=str, help='Path to the FASTA/Q reads file')
     parser.add_argument('--asm', type=str, help='Assembler used')
     parser.add_argument('--out', type=str, help='Output directory')
-    parser.add_argument('--paf', type=str, help='Path to the PAF file')
+    parser.add_argument('--paf', type=str, help='Path to the PAF file', default=None)
     args = parser.parse_args()
 
     gfa = args.gfa
